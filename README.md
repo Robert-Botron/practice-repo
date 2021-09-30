@@ -42,4 +42,4 @@ https://github.com/Robert-Botron/practice-repo.git
      $ git commit -m 'comment on document'
      $ git switch my-active-branch
      ```
-     Switching to other branches to make changes or additions outside of your current active branch is common. **Note:** It's a nice idea to add and commit your current work to your active branch before switching branches.  You can do this even if you don't commit your current work, but you will want to be very specific when commiting the new document, as not to commit other work to the master branch as well.  
+     Switching to other branches to make changes or additions outside of your current active branch is common. **Note:** It's a nice idea to stage and commit your current work to your active branch before switching branches.  You can do this even if you don't commit your current work, but you will want to be very specific when commiting the new document, as not to commit other work to the master branch as well.  
