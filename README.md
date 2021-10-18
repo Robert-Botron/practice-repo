@@ -127,7 +127,7 @@ Now you can push the repo to the new origin using `git push origin --all --tags`
 
 * **Q:** how do you see the history of a repo?
   
-  **A:** You use ```git log``` to view the history of the repository.  There are various parameters that can be used to format the view the commit log.
+  **A:** You use ```git log``` to view the history of the repository.  There are various parameters that can be used to format the view of the commit log.
 
   ```bash
   PS C:\Users\Robert\Projects\practice-repo> git log
@@ -158,4 +158,39 @@ Now you can push the repo to the new origin using `git push origin --all --tags`
   PS C:\Users\Robert\Projects\practice-repo>
   ```
 
+  With formating parameters you can make it easier to read.
+
+  ```git
+  PS C:\Users\Robert\Projects\practice-repo> git log --oneline
+  d9cc035 (HEAD -> main, origin/main, origin/HEAD) Addition and formatting
+  624c625 Add swap and backup files
+  c1283a7 Add Q&A question, how to move a repo
+  f14c9ca Spelling and formatting corrections
+  c91ff43 Changed "add and commit" to "stage and commit",  the word "add" is a little confusion when talking about adding a document
+  99a0c67 Addition of Q&A section along with an example.
+  110bb6a Added introduction and CLI example to README
+  1809fc9 Initial commit
+  
+  PS C:\Users\Robert\Projects\practice-repo> git log --oneline --decorate
+  d9cc035 (HEAD -> main, origin/main, origin/HEAD) Addition and formatting
+  624c625 Add swap and backup files
+  c1283a7 Add Q&A question, how to move a repo
+  f14c9ca Spelling and formatting corrections
+  c91ff43 Changed "add and commit" to "stage and commit",  the word "add" is a little confusion when talking about adding a document
+  99a0c67 Addition of Q&A section along with an example.
+  110bb6a Added introduction and CLI example to README
+  1809fc9 Initial commit
+  PS C:\Users\Robert\Projects\practice-repo>
+
+  PS C:\Users\Robert\Projects\practice-repo> git log --oneline --decorate --graph
+  * d9cc035 (HEAD -> main, origin/main, origin/HEAD) Addition and formatting
+  * 624c625 Add swap and backup files
+  * c1283a7 Add Q&A question, how to move a repo
+  * f14c9ca Spelling and formatting corrections
+  * c91ff43 Changed "add and commit" to "stage and commit",  the word "add" is a little confusion when talking about adding a document
+  * 99a0c67 Addition of Q&A section along with an example.
+  * 110bb6a Added introduction and CLI example to README
+  * 1809fc9 Initial commit
+  PS C:\Users\Robert\Projects\practice-repo>
+  ```
 ## Links
