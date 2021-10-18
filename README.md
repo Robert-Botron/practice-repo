@@ -19,36 +19,40 @@ https://github.com/Robert-Botron/practice-repo.git
 
 ## Workflows
  
-* Centeralized Workflow
+* Centralized Workflow
 * Feature Branching Workflow
-* Gitflow Wrokflow
+* Gitflow Workflow
 * Forking Workflow
   
 ## Q&A
+
 * **Q:** I want to add a document, but I don't want to add it to my current development branch.  How should I add it.
-**A:** Sure, you can always switch to the master branch, add and commit the document, and switch back to your active branch.
-     ```
+
+     **A:** Sure, you can always switch to the master branch, add and commit the document, and switch back to your active branch.
+
+   ```
      $ git checkout master
      $ touch document <add the document>
      $ git add document
      $ git commit -m 'comment on document'
      $ git checkout my-active-branch
-     ``` 
+   ``` 
      or in Git 2.23 or later of git.  Both checkout and switch will work.
-     ```
+   ```
      $ git switch master
      $ touch document <add the document>
      $ git add document
      $ git commit -m 'comment on document'
      $ git switch my-active-branch
-     ```
+   ```
      Switching to other branches to make changes or additions outside of your current active branch is common. 
      **Note:** It's a nice idea to stage and commit your current work to your active branch before switching branches.  You can do this even if you don't commit your current work, but you will want to be very specific when committing the new document, as not to commit other work to the master branch as well.  
-
-     * **Q:** How do I push an existing local repo into a new Github repo
+---
+* **Q:** How do I push an existing local repo into a new Github repo
+  
      **A:** This only requires that you add a remote origin and push to the new remote origin. When a local git repo is initialized it will not have an orgin so the process easy.  If you cloned a repo, your local repo will have and origin from which it was cloned from. I'll illustrate both situations.
      
-     Below is a configuration of an empty local repo
+     *Below is a configuration of an empty local repo*
 
      ```
      PS C:\Users\Robert\Projects> cd test
@@ -80,7 +84,7 @@ https://github.com/Robert-Botron/practice-repo.git
      ```
      Below we see what a cloned repo's config looks like    **Note:** the remote.origin already exists.
 
-     ```
+     ```bash
      PS C:\Users\Robert\Projects\practice-repo> git config --local -l
 
      core.repositoryformatversion=0
@@ -95,26 +99,63 @@ https://github.com/Robert-Botron/practice-repo.git
      branch.main.merge=refs/heads/main
      PS C:\Users\Robert\Projects\practice-repo>
      ```
-Because an existing "origin" remote repo exists, there two ways we can handle this.  We can remove the original origin or we can rename it and add a new origin.  The name "origin" is just a name given to the URL and can be anything.  The name "origin" seems to be apropos to where the repo came from, but does not need to be so named.  In this example I'll rename the original origin to "old-origin" and add a new one named "origin".
-```
-PS C:\Users\Robert\Projects\practice-repo> git remote rename origin old-origin
 
-PS C:\Users\Robert\Projects\practice-repo> git remote add origin https://gitlab.localdomain:5000/rchapman/practice-repo.git
+     Because an existing "origin" remote repo exists, there two ways we can handle this.  We can remove the original origin or we can rename it and add a new origin.  The name "origin" is just a name given to the URL and can be anything.  The name "origin" seems to be apropos to where the repo came from, but does not need to be so named.  In this example I'll rename the original origin to "old-origin" and add a new one named "origin".
 
-PS C:\Users\Robert\Projects\practice-repo> git config --local -l
-core.repositoryformatversion=0
-core.filemode=false
-core.bare=false
-core.logallrefupdates=true
-core.symlinks=false
-core.ignorecase=true
-remote.old-origin.url=https://github.com/Robert-Botron/practice-repo.git
-remote.old-origin.fetch=+refs/heads/*:refs/remotes/old-origin/*
-branch.main.remote=old-origin
-branch.main.merge=refs/heads/main
-remote.origin.url=https://gitlab.localdomain:5000/rchapman/practice-repo.git
-remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
-```
+     ```bash
+     PS C:\Users\Robert\Projects\practice-repo> git remote rename origin old-origin
+
+     PS C:\Users\Robert\Projects\practice-repo> git remote add origin https://gitlab.localdomain:5000/rchapman/practice-repo.git
+
+     PS C:\Users\Robert\Projects\practice-repo> git config --local -l
+     core.repositoryformatversion=0
+     core.filemode=false
+     core.bare=false
+     core.logallrefupdates=true
+     core.symlinks=false
+     core.ignorecase=true
+     remote.old-origin.url=https://github.com/Robert-Botron/practice-repo.git
+     remote.old-origin.fetch=+refs/heads/*:refs/remotes/old-origin/*
+     branch.main.remote=old-origin
+     branch.main.merge=refs/heads/main
+     remote.origin.url=https://gitlab.localdomain:5000/rchapman/practice-repo.git
+     remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+
+     ```
 
 Now you can push the repo to the new origin using `git push origin --all --tags`.  This will push your local repo to the new remote origin repo. Handling remote repositories in this way preserves the original repo where the source came from.
 
+* **Q:** how do you see the history of a repo?
+  
+  **A:** You use ```git log``` to view the history of the repository.  There are various parameters that can be used to format the view the commit log.
+
+  ```bash
+  PS C:\Users\Robert\Projects\practice-repo> git log
+  commit 624c62569023b6793ef90fe18c098342201972a7 (HEAD -> main, origin/main, origin/HEAD)
+  Author: Robert F. Chapman <rchapman@botron.com>
+  Date:   Mon Oct 11 12:41:41 2021 -0700
+
+    Add swap and backup files
+
+    Addition of *.swp and *.*~
+
+  commit c1283a72474f5080454e80b9d5dbed49a5f3b9b2
+  Author: Robert F. Chapman <rchapman@botron.com>
+  Date:   Mon Oct 11 12:28:49 2021 -0700
+
+    Add Q&A question, how to move a repo
+
+    Illustrates how to move a repo from one account to another by changing
+    the remote origin.
+
+  ...
+
+  commit 1809fc9278effcca2207b94e5c7af9670c467b66
+  Author: Robert F. Chapman <90871532+Robert-Botron@users.noreply.github.com>
+  Date:   Thu Sep 23 12:44:12 2021 -0700
+
+    Initial commit
+  PS C:\Users\Robert\Projects\practice-repo>
+  ```
+
+## Links
