@@ -1,24 +1,27 @@
 # practice-repo
 
 ## Introduction
+
 This practice repo allows us to play with git and learn how things work without destroying a live production project.  
 
 To Clone use the CLI or a GUI tool
 
 CLI
-```
+
+```bash
 $ git clone https://github.com/Robert-Botron/practice-repo.git
 ```
 
 GUI
-```
+
+```bash
 https://github.com/Robert-Botron/practice-repo.git
 ```
 
 ## Examples
 
 ## Workflows
- 
+
 * Centralized Workflow
 * Feature Branching Workflow
 * Gitflow Workflow
@@ -30,31 +33,36 @@ https://github.com/Robert-Botron/practice-repo.git
 
      **A:** Sure, you can always switch to the master branch, add and commit the document, and switch back to your active branch.
 
-   ```
+   ```bash
      $ git checkout master
      $ touch document <add the document>
      $ git add document
      $ git commit -m 'comment on document'
      $ git checkout my-active-branch
-   ``` 
-     or in Git 2.23 or later of git.  Both checkout and switch will work.
    ```
+
+     or in Git 2.23 or later of git.  Both checkout and switch will work.
+
+   ```bash
      $ git switch master
      $ touch document <add the document>
      $ git add document
      $ git commit -m 'comment on document'
      $ git switch my-active-branch
    ```
+
      Switching to other branches to make changes or additions outside of your current active branch is common. 
      **Note:** It's a nice idea to stage and commit your current work to your active branch before switching branches.  You can do this even if you don't commit your current work, but you will want to be very specific when committing the new document, as not to commit other work to the master branch as well.  
 ---
+
 * **Q:** How do I push an existing local repo into a new Github repo
   
      **A:** This only requires that you add a remote origin and push to the new remote origin. When a local git repo is initialized it will not have an orgin so the process easy.  If you cloned a repo, your local repo will have and origin from which it was cloned from. I'll illustrate both situations.
-     
+
      *Below is a configuration of an empty local repo*
 
-     ```
+     ```bash
+
      PS C:\Users\Robert\Projects> cd test
 
      PS C:\Users\Robert\Projects\test> git init
@@ -67,9 +75,12 @@ https://github.com/Robert-Botron/practice-repo.git
      core.logallrefupdates=true
      core.symlinks=false
      core.ignorecase=true
-     ``` 
-     Now we see what the config looks like after adding the remote origin to our empty repo.
      ```
+
+     Now we see what the config looks like after adding the remote origin to our empty repo.
+
+     ```bash
+
      PS C:\Users\Robert\Projects\test> git remote add origin https://github.com/Robert-Botron/practice-repo.git
 
      PS C:\Users\Robert\Projects\test> git config --local -l
@@ -82,6 +93,7 @@ https://github.com/Robert-Botron/practice-repo.git
      remote.origin.url=https://github.com/Robert-Botron/practice-repo.git
      remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
      ```
+
      Below we see what a cloned repo's config looks like    **Note:** the remote.origin already exists.
 
      ```bash
@@ -193,4 +205,7 @@ Now you can push the repo to the new origin using `git push origin --all --tags`
   * 1809fc9 Initial commit
   PS C:\Users\Robert\Projects\practice-repo>
   ```
+
 ## Links
+
+* [Publish Aritifacts in Github Actions](https://www.youtube.com/watch?v=Zcsk_Nzv-aU)
